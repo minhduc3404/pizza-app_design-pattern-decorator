@@ -65,6 +65,7 @@ class _PizzaMenuState extends State<PizzaMenuPage> {
         child: Column(
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Text(
                   'Select your pizza:',
@@ -74,9 +75,14 @@ class _PizzaMenuState extends State<PizzaMenuPage> {
             ),
             //pizza selection
             PizzaSelection(selectedIndex: _selectedIndex, onChanged: onSelectChanged),
-            CustomSelection(toppingPizza: _pizzaToppingsDataMap, onSelected: (index, isSelect)=>{
-              onCustomChoiceChange(index, isSelect)
-            },),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                CustomSelection(toppingPizza: _pizzaToppingsDataMap, onSelected: (index, isSelect)=>{
+                  onCustomChoiceChange(index, isSelect)
+                },)
+              ],
+            ),
             PizzaInformation(_pizza)
           ],
         ),
